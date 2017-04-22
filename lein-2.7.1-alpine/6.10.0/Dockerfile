@@ -20,14 +20,14 @@ RUN apk add --no-cache \
       make \
       python
 
-RUN curl -SLO "https://nodejs.org/dist/v6.10/node-v6.10.tar.xz"
+RUN curl -SLO "https://nodejs.org/dist/v6.10.0/node-v6.10.0.tar.xz"
 
-RUN tar -xf "node-v6.10.tar.xz" \
-      && cd "node-v6.10" \
+RUN tar -xf "node-v6.10.0.tar.xz" \
+      && cd "node-v6.10.0" \
       && ./configure \
       && make -j$(getconf _NPROCESSORS_ONLN) \
       && make install \
       && apk del .build-deps \
       && cd .. \
-      && rm -Rf "node-v6.10" \
-      && rm "node-v6.10.tar.xz"
+      && rm -Rf "node-v6.10.0" \
+      && rm "node-v6.10.0.tar.xz"

@@ -20,14 +20,14 @@ RUN apk add --no-cache \
       make \
       python
 
-RUN curl -SLO "https://nodejs.org/dist/v4.8/node-v4.8.tar.xz"
+RUN curl -SLO "https://nodejs.org/dist/v7.9.0/node-v7.9.0.tar.xz"
 
-RUN tar -xf "node-v4.8.tar.xz" \
-      && cd "node-v4.8" \
+RUN tar -xf "node-v7.9.0.tar.xz" \
+      && cd "node-v7.9.0" \
       && ./configure \
       && make -j$(getconf _NPROCESSORS_ONLN) \
       && make install \
       && apk del .build-deps \
       && cd .. \
-      && rm -Rf "node-v4.8" \
-      && rm "node-v4.8.tar.xz"
+      && rm -Rf "node-v7.9.0" \
+      && rm "node-v7.9.0.tar.xz"
