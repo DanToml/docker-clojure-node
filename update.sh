@@ -32,5 +32,5 @@ for variant in "${variants[@]}"; do
   generated_warning > "$output"
   cat "$template" >> "$output"
   sed -i 's/%%BASE_TAG%%/'"$lein_version"'/g' "$output"
-  sed -i 's/ENV NODE_VERSION 0.0.0/'"ENV NODE_VERSION $node_version"'/g' "$output"
+  sed -i 's/$NODE_VERSION/'"$node_version"'/g' "$output"
 done

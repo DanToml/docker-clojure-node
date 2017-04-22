@@ -7,7 +7,6 @@ FROM clojure:lein-2.7.1-alpine
 MAINTAINER Danielle Tomlinson <dan@tomlinson.io>
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 4.8
 
 RUN apk add --no-cache \
       libstdc++ \
@@ -21,14 +20,14 @@ RUN apk add --no-cache \
       make \
       python
 
-RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz"
+RUN curl -SLO "https://nodejs.org/dist/v4.8/node-v4.8.tar.xz"
 
-RUN tar -xf "node-v$NODE_VERSION.tar.xz" \
-      && cd "node-v$NODE_VERSION" \
+RUN tar -xf "node-v4.8.tar.xz" \
+      && cd "node-v4.8" \
       && ./configure \
       && make -j$(getconf _NPROCESSORS_ONLN) \
       && make install \
       && apk del .build-deps \
       && cd .. \
-      && rm -Rf "node-v$NODE_VERSION" \
-      && rm "node-v$NODE_VERSION.tar.xz"
+      && rm -Rf "node-v4.8" \
+      && rm "node-v4.8.tar.xz"

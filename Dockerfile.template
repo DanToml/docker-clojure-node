@@ -2,7 +2,6 @@ FROM clojure:%%BASE_TAG%%
 MAINTAINER Danielle Tomlinson <dan@tomlinson.io>
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 0.0.0
 
 RUN apk add --no-cache \
       libstdc++ \
